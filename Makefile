@@ -1,5 +1,6 @@
 TARGET:=JNIApp
-TARGET_LIB:=lib$(TARGET)Impl.so
+EXT=jnilib
+TARGET_LIB:=lib$(TARGET)Impl.$(EXT)
 LIB_PATH=./lib
 INCLUDE_PATH=./include
 
@@ -16,3 +17,6 @@ $(TARGET).h: $(TARGET).class
 
 $(TARGET).class: ./src/$(TARGET).java
 	javac -d ./classes/ ./src/$(TARGET).java
+
+clean:
+	rm ./classes/*; rm ./lib/*; rm ./include/*
